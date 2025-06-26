@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import styles from './doctor-description.module.scss';
 import DoctorName from '../DoctorName/DoctorName';
@@ -7,6 +8,7 @@ import LocalItem from '../LocalItem/LocalItem';
 import { Skeleton } from '@/components/ui/skeleton';
 import InfoDate from '../InfoDate/InfoDate';
 import ButtonAction from '../Button/ButtonAction/ButtonAction';
+//import {setting} from '@/lib/setting';
 
 const DoctorDescription = ({ doctor, majors, params }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -31,7 +33,7 @@ const DoctorDescription = ({ doctor, majors, params }) => {
       </div>
 
       <div className={styles.description}>
-        <SocialMediaLink ig={doctor.socialUrlInstagram} tg={doctor.socialUrlTelegram} fb={doctor.socialUrlFacebook} />
+        <SocialMediaLink ig={doctor.socialUrlInstagram} fb={doctor.socialUrlFacebook} />
         <DoctorName nameDoctor={doctor.nameDoctor} lastName={doctor.lastName} status={doctor.status} />
         
         <InfoDate
