@@ -77,7 +77,7 @@ export default function LoginBlock({ params }) {
 
 
                     toast({
-                            title: "Чекайте за дзвінок від адміністратора",
+                            title: "Чекайте на дзвінок від адміністратора",
                             description: message,
                             className: "bg-blue-500 text-white",
                             duration: 60000, 

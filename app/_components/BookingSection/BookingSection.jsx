@@ -28,11 +28,11 @@ const BookingSection = ({children, params}) => {
         </SheetDescription>
       </SheetHeader>
       <SheetFooter>
-        <div className='bg-slate-100 items-center w-full flex flex-col p-1 rounded-lg'>
+        <div className='bg-slate-100 items-center w-full flex flex-col p-1 rounded-lg justify-evenly h-[220px] p-2'>
          <a href="tel:+380954719933" className="text-gray-500 hover:underline">
            {setting.phone_primery}
          </a>
-         <LocalItem latitude="49.57730933120542" longitude="34.58098135293587" />
+         <LocalItem latitude="50.4062575" longitude="30.6270358" />
          <div>{setting.schedulle}</div>
          </div>
       </SheetFooter>
