@@ -5,8 +5,13 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'eu-central-1-shared-euc1-02.graphassets.com',
-        pathname: '/clx01r8cw0ejj07w50fxo3akj/**',
+        hostname: 'eu-west-2.cdn.hygraph.com',
+        pathname: '/content/cmbj4nf4d01i707w8hzgu9oos/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'eu-west-2.graphassets.com',
+        pathname: '/**', // Дозволяє будь-які шляхи
       },
     ],
   },

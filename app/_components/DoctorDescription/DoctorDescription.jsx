@@ -44,7 +44,7 @@ const DoctorDescription = ({ doctor, majors, params }) => {
 
         />
        
-        <LocalItem latitude="49.57730933120542" longitude="34.58098135293587" />
+        <LocalItem latitude="50.4062575" longitude="30.6270358" />
         <ButtonAction params={params}/>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { gql, request } from "graphql-request";
 
 
 
-const MASTER_URL='https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clx01r83d02vi07ulcmj2srvc/master'
+const MASTER_URL= process.env.NEXT_PUBLIC_API_URL;
 
 const getServices =async(arg)=>{
 
