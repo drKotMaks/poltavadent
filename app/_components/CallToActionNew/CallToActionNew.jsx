@@ -14,7 +14,7 @@ const CallToActionNew = () => {
                     <span className="block mb-3 text-sm text-yellow-600 font-semibold uppercase">{setting.fullTitle}</span>
                     <h2 className="text-3xl md:text-4xl text-white font-semibold">{setting.h2}</h2>
                     </div>
-                    <LinkButton text="Записатися" href="/categories/white" />
+                    <LinkButton text="Записатися" href="/categories/likuvannya-korenevikh-kanaliv" />
                 </div>
             </div>
             <div className={styles.MainBlockInfo}>
@@ -25,7 +25,7 @@ const CallToActionNew = () => {
                                 {setting.button_2}
                             </p>
                             <div className={styles.divHeader}>
-                            <Link href={`/categories/white`}>
+                            <Link href={`/categories/likuvannya-korenevikh-kanaliv`}>
                             <h4 className={styles.header3}>
                                 {setting.button_1}
                             </h4> </Link>
