@@ -101,12 +101,12 @@ export default function LoginBlock({ params }) {
 
     return (
         <form onSubmit={handleSubmit} className="gap-2">
-            <div className="flex gap-4 p-1 bg-[#e6fdf3] rounded-[10px]">
+            <div className="flex items-center gap-4 p-2 bg-[#e6fdf3] rounded-[10px] min-h-[56px]">
                 <Avatar>
                     <AvatarImage src="/default-avatar.png" />
                     <AvatarFallback>D</AvatarFallback>
                 </Avatar>
-                <p>Відправте запит, AI знайде для вас ідеальний варіант</p>
+                <p className="m-0">Відправте запит, AI знайде для вас ідеальний варіант</p>
             </div>
             <div className="gap-2 mt-5 flex flex-col">
                 <div className=" gap-2">

@@ -52,7 +52,7 @@ const LocalItem = ({ latitude, longitude, isLoading }) => {
                     </div>
                     <div className={classNames(styles.adresFull, styles.div3, styles.div4)}>
                         <Link href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
-                            {setting.adress}
+                            {setting.adress_short}
                         </Link>
                     </div>
                 </HoverCardTrigger>
