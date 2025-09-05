@@ -37,15 +37,15 @@ export default function Header () {
         </svg>
     </button>
   </div>
-  <div className={`items-center justify-between ${menuView ? 'flex' : 'hidden'} w-full md:flex md:w-auto md:order-1`} id="navbar-sticky">
+  <div className={`items-center justify-between ${menuView ? 'flex' : 'hidden'} w-full md:flex md:w-auto md:order-1 relative z-30`} id="navbar-sticky">
     <ul className="flex flex-col gap-1 p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 w-full">
       
       
-      <MenuIttem name="Головна" href="/"   />
-      <MenuIttem name="Послуги" href="/categories/likuvannya-korenevikh-kanaliv"  />
-      <MenuIttem name="Лікарі" href="/doctors/vasylyaka-serhiy"  />
-      <MenuIttem name="Ціни" href="/prices"  />
-      <MenuIttem name="Контакти" href="/about"  />
+  <MenuIttem name="Головна" href="/" onNavigate={() => setMenuView(false)} />
+  <MenuIttem name="Послуги" href="/categories/likuvannya-korenevikh-kanaliv" onNavigate={() => setMenuView(false)} />
+  <MenuIttem name="Лікарі" href="/doctors/vasylyaka-serhiy" onNavigate={() => setMenuView(false)} />
+  <MenuIttem name="Ціни" href="/prices" onNavigate={() => setMenuView(false)} />
+  <MenuIttem name="Контакти" href="/about" onNavigate={() => setMenuView(false)} />
       
       
       
@@ -54,6 +54,15 @@ export default function Header () {
   </div>
   </div>
 </nav>
+
+      {/* Mobile overlay: covers the page outside the menu and closes menu on click */}
+      {menuView && (
+        <div
+          className="fixed inset-0 bg-black/40 md:hidden z-10"
+          onClick={() => setMenuView(false)}
+          aria-hidden="true"
+        />
+      )}
 
         </div>
     );
