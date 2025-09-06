@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { getAllInfoServices } from '@/app/_services/graphQL_custom/QueryGraphQL';
 import { fetcher } from '@/app/_services/fetcher';
 import { setting } from '@/lib/setting';
