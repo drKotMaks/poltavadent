@@ -8,13 +8,11 @@ import { Separator } from "@/components/ui/separator";
 import {DescriptionBlock} from '../_components/DescriptionBlock/DescriptionBlock';
 import GalleryServices from '../_components/GalleryServices/GalleryServices';
 import FullText from '@/app/_components/FullText/FullText';
-import dynamic from 'next/dynamic';
-//import GetPriceForCategory from '@/app/_components/GetPriceForCategory/GetPriceForCategory';
+import dynamicImport from 'next/dynamic';
 
 // Динамічний імпорт клієнтських компонентів
- const DoctorItemServices = dynamic(() => import('@/app/_components/DoctorItemServices/DoctorItemsServices'), { ssr: false });
-//const GetPriceForCategory = dynamic(() => import('@/app/_components/PricesBlock/PricesBlockClient'), { ssr: false });
-const GetPriceForCategory = dynamic(() => import('@/app/_components/GetPriceForCategory/GetPriceForCategory'), { ssr: false });
+ const DoctorItemServices = dynamicImport(() => import('@/app/_components/DoctorItemServices/DoctorItemsServices'), { ssr: false });
+const GetPriceForCategory = dynamicImport(() => import('@/app/_components/GetPriceForCategory/GetPriceForCategory'), { ssr: false });
 
 export async function generateMetadata({ params }) {
   const query = getAllInfoServices(params.category);
