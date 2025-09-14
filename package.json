@@ -1,6 +1,6 @@
 {
   "name": "stomat-new-poltavadent",
-  "version": "2.5.3",
+  "version": "2.5.5",
   "private": true,
   "scripts": {
     "debuger": "set NODE_OPTIONS=--inspect && next dev",
