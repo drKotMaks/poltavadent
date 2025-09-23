@@ -9,6 +9,7 @@ import {DescriptionBlock} from '../_components/DescriptionBlock/DescriptionBlock
 import GalleryServices from '../_components/GalleryServices/GalleryServices';
 import FullText from '@/app/_components/FullText/FullText';
 import dynamicImport from 'next/dynamic';
+import Script from 'next/script';
 
 // Динамічний імпорт клієнтських компонентів
  const DoctorItemServices = dynamicImport(() => import('@/app/_components/DoctorItemServices/DoctorItemsServices'), { ssr: false });
@@ -71,6 +72,38 @@ export default async function CategoryPage({ params }) {
       <FullText FullText={text} />
       <Separator />
       <GetPriceForCategory category={params.category} />
+      <Script id="ld-json-service" type="application/ld+json" strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: service.titleServicEs,
+            description: service.decriptionServicEs,
+            url: `${setting.url}${params.category}`,
+            image: service.imageServices?.url,
+            provider: {
+              "@type": "Dentist",
+              name: setting.fullTitle,
+              url: setting.url,
+              telephone: setting.phone_primery,
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: setting.adress,
+                addressLocality: "Київ",
+                addressCountry: "UA"
+              }
+            },
+            offers: (service.pricE || []).map(p => ({
+              "@type": "Offer",
+              price: p.costNew,
+              priceCurrency: "UAH",
+              name: p.titlE,
+              availability: "https://schema.org/InStock",
+              url: `${setting.url}${params.category}`
+            }))
+          })
+        }}
+      />
       
       </div>
   );

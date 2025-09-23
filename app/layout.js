@@ -17,7 +17,7 @@ const inter = JetBrains_Mono({ subsets: ["cyrillic"] });
 export default function RootLayout({ children }) {
   return (
    
-    <html lang="en">
+    <html lang="uk">
   {/* Google Tag Manager - head script (placed as close to <head> start as possible) */}
   <Script id="gtm-script" strategy="beforeInteractive">
     {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

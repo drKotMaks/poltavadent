@@ -4,6 +4,7 @@ import DoctorDescription from '@/app/_components/DoctorDescription/DoctorDescrip
 import FullText from '@/app/_components/FullText/FullText';
 import dynamic from 'next/dynamic';
 import { setting } from '@/lib/setting';
+import Script from 'next/script';
 
 // Динамічний імпорт клієнтського компоненту
 const PricesBlockClient = dynamic(() => import('@/app/_components/PricesBlock/PricesBlockClient'), { ssr: false });
@@ -44,6 +45,24 @@ export default async function DoctorSinglePage({ params }) {
       <FullText FullText={text} />
       {/* PricesBlockClient завантажується окремо на клієнті */}
       <PricesBlockClient doctorId={params.doctor} />
+      <Script id="ld-json-doctor" type="application/ld+json" strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: `${doctor?.nameDoctor ?? ''} ${doctor?.lastName ?? ''}`.trim(),
+            jobTitle: (majors || []).join(', '),
+            image: doctor?.imageDoctor?.url,
+            url: `${setting.url}doctors/${params.doctor}`,
+            worksFor: {
+              "@type": "Dentist",
+              name: setting.fullTitle,
+              url: setting.url
+            },
+            description: doctor?.description ?? ''
+          })
+        }}
+      />
     </div>
   );
 }
