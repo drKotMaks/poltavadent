@@ -3,6 +3,7 @@ import CallToActionNew from "./_components/CallToActionNew/CallToActionNew";
 import DoctorsListNew from "./_components/DoctorsListNew/DoctorsListNew";
 import Reviews from "./_components/Reviews/Reviews";
 import  {setting} from "@/lib/setting";
+import Script from "next/script";
 
 
 
@@ -12,6 +13,22 @@ export const metadata = {
     template: "%s | Стоматологія на Позняках",
   },
   description: setting.description,
+  alternates: {
+    canonical: setting.url_cannonical,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      maxSnippet: -1,
+      maxImagePreview: "large",
+      maxVideoPreview: -1,
+    },
+  },
   keywords: [
   "Стоматологія Полтава Дент",
   "Стоматкабінет на Позняках",
@@ -58,6 +75,32 @@ export default function Home() {
       <DoctorsListNew/>
       <Services/>
       <Reviews/>
+      <Script id="ld-json-home" type="application/ld+json" strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Dentist",
+            name: setting.fullTitle,
+            url: setting.url,
+            telephone: setting.phone_primery,
+            email: setting.email,
+            image: `${setting.url}main-foto.jpg`,
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: setting.adress,
+              addressLocality: "Київ",
+              addressCountry: "UA",
+            },
+            sameAs: [
+              setting.socialMedia.facebook,
+              setting.socialMedia.instagram,
+              setting.socialMedia.youtube,
+              setting.socialMedia.tiktok,
+            ],
+            priceRange: "$$",
+          }),
+        }}
+      />
     </main>
   );
 }
